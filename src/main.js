@@ -72,7 +72,14 @@ const onFormSubmit = async event => {
 
       bigImg.refresh();
     }, 500);
-  } catch (error) {}
+  } catch (error) {
+    iziToast.error({
+      title: 'Error!',
+      message: 'An error occurred while loading more photos.',
+      position: 'topRight',
+      timeout: 2000
+    });
+  }
 
   //reset form
   ref.form.reset();
@@ -119,7 +126,12 @@ const onLoadMore = async () => {
       bigImg.refresh();
     }, 500);
   } catch (error) {
-    console.error(`An error occurred: ${error.message}`);
+    iziToast.error({
+      title: 'Error!',
+      message: 'An error occurred while loading more photos.',
+      position: 'topRight',
+      timeout: 2000
+    });
   }
 };
 
